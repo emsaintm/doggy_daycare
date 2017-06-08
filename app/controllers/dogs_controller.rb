@@ -48,6 +48,18 @@ def update
 end
 
 
+def destroy
+  @dog = Dog.find(params[:id])
+
+
+  if @dog.destroy
+    redirect_to dogs_url, notice: "Successfully deleted."
+  else 
+    redirect_to dogs_url, notice: "Could not delete dog."
+  end 
+end
+
+
  private
 
  def dog_params
