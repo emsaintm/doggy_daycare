@@ -25,7 +25,27 @@ def create
    @dog = Dog.find(params[:id])
 
  end
+ 
 
+
+def edit
+  @dog = Dog.find(params[:id]) 
+  
+end
+
+
+def update
+  @dog = Dog.find(params[:id])
+
+ if @dog.update(dog_params)
+    redirect_to dogs_url, notice: "Successfully updated!"
+
+  else 
+    flash.now[:notice] = "Something went wrong.  Try again."
+    render :edit
+    
+  end
+end
 
 
  private
