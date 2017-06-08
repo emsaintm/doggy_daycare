@@ -21,6 +21,12 @@ def create
   end
  end
 
+ def show
+   @dog = Dog.find(params[:id])
+
+ end
+
+
 
  private
 
